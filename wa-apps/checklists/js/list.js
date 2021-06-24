@@ -17,16 +17,16 @@
 		//
 
 		where = where || 'top';
-		var li =	'<li rel="'+item.sort+'" class="item'+(item.done ? ' c-done' : '')+'">'+
+		var li =	'<div rel="'+item.sort+'" class="flexbox middle space-12 item'+(item.done ? ' c-done' : '')+'">'+
 						'<label>'+
 							'<input type="checkbox" name="'+item.id+'" class="c-item-checkbox"'+(item.done ? ' checked="true"' : '')+'> '+
 							'<span class="c-item-name">'+item.name+'</span>'+
 						'</label>'+
 						(item.when ? '<span class="hint c-completed-when">'+item.when+'</span>' : '')+
 						(item.who ? '<span class="hint c-completed-by">'+item.who+'</span>' : '')+
-						' <a href="#" class="c-edit-item" title="'+$.cl.loc.edit+'"><i class="icon10 edit"></i></a>'+
-						' <a href="#" class="c-delete-item" title="'+$.cl.loc.del+'"><i class="icon10 no"></i></a>'+
-					'</li>';
+						' <span class="icon"><a href="#" class="c-edit-item" title="'+$.cl.loc.edit+'"><i class="fas fa-edit"></i></a></span>'+
+						' <span class="icon"><a href="#" class="c-delete-item" title="'+$.cl.loc.del+'"><i class="fas fa-trash"></i></a></span>'+
+					'</div>';
 
 		// li will be inserted inserted before this item
 		var insertBefore = null;

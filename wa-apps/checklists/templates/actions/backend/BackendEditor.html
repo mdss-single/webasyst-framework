@@ -1,61 +1,63 @@
 {*
   * List settings page.
   *}
-<div class="block double-padded c-list {$list.color_class}">
-	{if !$list.id}
-		<h1>[`New list`]</h1>
-	{/if}
-	<div class="fields form">
-	  <div class="field-group">
-		<div class="field">
-			<div class="name bold">[`List name`]</div>
-			<div class="value bold">
-				<input id="name" class="large" value="{$list.name|escape}" type="text">
-				<br>
-				<br>
-			</div>
-		</div>
-		<div class="field">
-			<div class="name">[`Color`]</div>
-			<div class="value c-settings">
-				<ul class="menu-h" id="colors">
-					{foreach $colors as $c}
-						<li class="{$c}"><a href="#"><input name="c-list-settings-color" type="radio" value="{$c}"{if $c == $list.color_class} checked="true"{/if}></a></li>
-					{/foreach}
-				</ul>
-			</div>
-		</div>
+<div class="article">
+	<div class="article-body">
+		{if !$list.id}
+			<h1>[`New list`]</h1>
+		{/if}
+		<div class="fields form">
+			<div class="fields-group">
+				<div class="field">
+					<div class="name bold">[`List name`]</div>
+					<div class="value bold">
+						<input id="name" class="large" value="{$list.name|escape}" type="text">
+					</div>
+				</div>
 
-		<div class="field">
-			<div class="name">[`Icon`]</div>
-			<div class="value c-list-icons">
-				<ul class="menu-h" id="icons">
-					{foreach $icons as $i}
-						<li{if $list.icon == $i} class="selected"{/if}><a href="#"><i class="icon16 {$i}"></i></a></li>
-					{/foreach}
-				</ul>
-				<span class="small">[`Or specify image URL (must be exactly 16x16 pixels):`]<br>
-					<input value="{if substr($list.icon, 0, 7) == 'http://'}{$list.icon}{else}http://{/if}" type="text" id="icon">
-				</span>
+				<div class="field">
+					<div class="name">[`Color`]</div>
+					<div class="value c-settings">
+						<ul class="menu thumbs flexbox wrap custom-m-0" id="colors">
+							{foreach $colors as $c}
+								<li class="{$c}"><a href="#"><input name="c-list-settings-color" type="radio" value="{$c}"{if $c == $list.color_class} checked="true"{/if}></a></li>
+							{/foreach}
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="fields-group">
+				<div class="field">
+					<div class="name">[`Icon`]</div>
+					<div class="value">
+						<ul class="menu flexbox wrap custom-m-0 custom-mb-20" id="icons">
+							{foreach $icons as $i}
+								<li class="width-auto-mobile custom-m-0 {if $list.icon == $i} selected{/if}" data-checklist-icon="{$i}">
+									<a href="#"><span class="icon"><i class="custom-mx-auto fas fa-{$i}"></i></span></a>
+								</li>
+							{/foreach}
+						</ul>
+						<div class="flexbox wrap">
+							<span class="small">[`Or specify image URL (must be exactly 16x16 pixels):`]</span>
+							<input value="{if substr($list.icon, 0, 7) == 'http://'}{$list.icon}{else}http://{/if}" type="text" id="icon">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="fields-group">
+				<div class="field">
+					<div class="value submit">
+						<input class="button green" id="submit" value="[`Save`]" type="button">
+						{if $list.id}
+						[`or`] <a href="?action=list&id={$list.id}">[`go back to list`]</a>
+						{/if}
+					</div>
+				</div>
 			</div>
 		</div>
-	  </div>
-	  <div class="field-group">
-		<div class="field">
-			<div class="value submit">
-				<input class="button green" id="submit" value="[`Save`]" type="button">
-				{if $list.id}
-					[`or`] <a href="?action=list&id={$list.id}">[`go back to list`]</a>
-				{/if}
-			</div>
-		</div>
-		<div class="field">
-			<div class="value">
-			 </div>
-		</div>
-	  </div>
 	</div>
-	<div class="clear-left"></div>
 </div>
 <script type="text/javascript">
 	// data for script have to be generated inside template

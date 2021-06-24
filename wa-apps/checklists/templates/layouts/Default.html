@@ -21,18 +21,16 @@
 </head>
 <body id="{$wa_app}"><div id="wa">
 	{$wa->header()}
-	<div id="wa-app">
-		<div class="sidebar left200px">
+	<div id="wa-app" class="flexbox wrap-mobile">
+		<div class="sidebar hide-scrollbar mobile-friendly" id="MY-APP-CUSTOM-SIDEBAR-ID-123">
 			{if !empty($sidebar)}
 				{$sidebar}
 			{/if}
 		</div>
-		<div class="content left200px" id="cl-core">
-			<div class="shadowed c-content">
-				{if !empty($content)}
-					{$content}
-				{/if}
-			</div>
+		<div class="content blank">
+			{if !empty($content)}
+				{$content}
+			{/if}
 		</div>
 	</div>
 </div></body>

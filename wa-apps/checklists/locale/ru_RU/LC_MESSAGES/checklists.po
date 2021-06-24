@@ -91,3 +91,5 @@ msgstr "Полный доступ"
 msgid "Available lists"
 msgstr "Доступные списки"
 
+msgid "New placeholder"
+msgstr "Наименование задачи"

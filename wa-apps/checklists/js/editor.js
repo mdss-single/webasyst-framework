@@ -54,8 +54,8 @@
 		var icon = $('#icon').val();
 
 		if (icon.length < 8 || icon.substr(0, 7) != 'http://') {
-			if ($('#icons li.selected i').length > 0) {
-				icon = $('#icons li.selected i').attr('class').replace('icon16 ', '');
+			if ($('#icons li.selected svg').length > 0) {
+				icon = $('#icons li.selected').data('checklist-icon');
 			} else {
 				icon = 'c-white';
 			}
